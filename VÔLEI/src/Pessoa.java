@@ -3,16 +3,16 @@ import javax.persistence.Id;
 
 @Entity
 public class Pessoa {
-	
+
 	@Id
 	private int matricula;
-	
+
 	private String nome;
 	private String sexo;
 	private int idade;
-	
+
 	public Pessoa() {
-		
+
 	}
 
 	public Pessoa(int matricula, String nome, String sexo, int idade) {

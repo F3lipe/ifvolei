@@ -14,6 +14,7 @@ public class Time {
 	
 	@ManyToOne
 	private ArrayList<Atleta> atletas;
+	
 	private Tecnico tecnicos;
 
 	public Time() {
