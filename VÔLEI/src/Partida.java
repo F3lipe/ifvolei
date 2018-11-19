@@ -10,17 +10,19 @@ public class Partida {
 	private Jogo jogo;
 	private Time time_vencedor;
 	private Time time_perdedor;
+	private Integer pts_tim_venc = 3;
 
 	public Partida() {
 
 	}
 
-	public Partida(int id, Jogo jogo, Time time_vencedor, Time time_perdedor) {
+	public Partida(int id, Jogo jogo, Time time_vencedor, Time time_perdedor, Integer pts_tim_venc) {
 		super();
 		this.id = id;
 		this.jogo = jogo;
 		this.time_vencedor = time_vencedor;
 		this.time_perdedor = time_perdedor;
+		this.pts_tim_venc = pts_tim_venc;
 	}
 
 	public int getId() {
@@ -54,6 +56,14 @@ public class Partida {
 	public void setTime_perdedor(Time time_perdedor) {
 		this.time_perdedor = time_perdedor;
 	}
+	
+	public Integer getPts_tim_venc() {
+		return pts_tim_venc;
+	}
+
+	public void setPts_tim_venc(Integer pts_tim_venc) {
+		this.pts_tim_venc = pts_tim_venc;
+	}
 
 	@Override
 	public int hashCode() {
@@ -61,6 +71,7 @@ public class Partida {
 		int result = 1;
 		result = prime * result + id;
 		result = prime * result + ((jogo == null) ? 0 : jogo.hashCode());
+		result = prime * result + ((pts_tim_venc == null) ? 0 : pts_tim_venc.hashCode());
 		result = prime * result + ((time_perdedor == null) ? 0 : time_perdedor.hashCode());
 		result = prime * result + ((time_vencedor == null) ? 0 : time_vencedor.hashCode());
 		return result;
@@ -82,6 +93,11 @@ public class Partida {
 				return false;
 		} else if (!jogo.equals(other.jogo))
 			return false;
+		if (pts_tim_venc == null) {
+			if (other.pts_tim_venc != null)
+				return false;
+		} else if (!pts_tim_venc.equals(other.pts_tim_venc))
+			return false;
 		if (time_perdedor == null) {
 			if (other.time_perdedor != null)
 				return false;
@@ -98,7 +114,9 @@ public class Partida {
 	@Override
 	public String toString() {
 		return "Partida [id=" + id + ", jogo=" + jogo + ", time_vencedor=" + time_vencedor + ", time_perdedor="
-				+ time_perdedor + "]";
+				+ time_perdedor + ", pts_tim_venc=" + pts_tim_venc + "]";
 	}
+
+	
 
 }

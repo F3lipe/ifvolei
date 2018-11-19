@@ -1,8 +1,10 @@
-import java.util.ArrayList;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import java.util.Set;
 
 @Entity
 public class Time {
@@ -13,14 +15,17 @@ public class Time {
 	private String nome;
 	
 	@ManyToOne
-	private ArrayList<Atleta> atletas;
+	@JoinColumn(name="id_atletas")
+	private Set<Atleta> atletas;
 	
+	@OneToOne
+	@JoinColumn(name="id_tecnicos")
 	private Tecnico tecnicos;
 
 	public Time() {
 	}
 
-	public Time(int id, String nome, ArrayList<Atleta> atletas, Tecnico tecnicos) {
+	public Time(int id, String nome, Set<Atleta> atletas, Tecnico tecnicos) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -44,11 +49,11 @@ public class Time {
 		this.nome = nome;
 	}
 
-	public ArrayList<Atleta> getAtletas() {
+	public Set<Atleta> getAtletas() {
 		return atletas;
 	}
 
-	public void setAtletas(ArrayList<Atleta> atletas) {
+	public void setAtletas(Set<Atleta> atletas) {
 		this.atletas = atletas;
 	}
 

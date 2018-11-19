@@ -1,8 +1,8 @@
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -15,13 +15,14 @@ public class Jogo {
 	private Time time_2;
 
 	@ManyToOne
-	private ArrayList<Set> sets;
+	@JoinColumn(name="id_set")
+	private java.util.Set<Set> sets;
 
 	public Jogo() {
 
 	}
 
-	public Jogo(int id, Date data, Time time_1, Time time_2, ArrayList<Set> sets) {
+	public Jogo(int id, Date data, Time time_1, Time time_2, java.util.Set<Set> sets) {
 		super();
 		this.id = id;
 		this.data = data;
@@ -62,11 +63,11 @@ public class Jogo {
 		this.time_2 = time_2;
 	}
 
-	public ArrayList<Set> getSets() {
+	public java.util.Set<Set> getSets() {
 		return sets;
 	}
 
-	public void setSets(ArrayList<Set> sets) {
+	public void setSets(java.util.Set<Set> sets) {
 		this.sets = sets;
 	}
 
