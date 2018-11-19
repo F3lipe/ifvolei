@@ -11,7 +11,7 @@ public interface Volei {
 
 	public Jogo Rodada(Jogo jogo, Set set, java.util.Set<Partida> partidas);
 	
-	public Partida Placar(Time time_vencedor, Time time_perdedor, Integer pts_tim_venc);
+	public Partida Tabela(Time time_vencedor, Time time_perdedor, Integer pts_tim_venc);
 	
 
 
