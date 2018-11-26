@@ -20,7 +20,7 @@ public class Time {
 	private Set<Atleta> atletas;
 	
 	@OneToOne
-	@JoinColumn(name="id_time_atletas")
+	@JoinColumn(name="id_time_tecnicos")
 	private Tecnico tecnicos;
 
 	public Time() {
