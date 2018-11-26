@@ -10,15 +10,15 @@ public class Partida {
 	private int id;
 
 	@OneToOne
-	@JoinColumn(name = "id_Partida")
+	@JoinColumn(name = "id_Partida_jogo")
 	private Jogo jogo;
 
 	@OneToOne
-	@JoinColumn(name = "id_Parti")
+	@JoinColumn(name = "id_Partida_tvencedor")
 	private Time time_vencedor;
 	
 	@OneToOne
-	@JoinColumn(name = "id_Part")
+	@JoinColumn(name = "id_Partida_tperdedor")
 	private Time time_perdedor;
 	
 	private Integer pts_tim_venc = 3;

@@ -14,19 +14,20 @@ public class Jogo {
 	private Date data;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_Jogo")
+	@JoinColumn (name = "id_Jogo_time_1")
 	private Time time_1;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_Jog")
+	@JoinColumn (name = "id_Jogo_time_2")
 	private Time time_2;
 
 	@OneToMany
-	@JoinColumn(name="id_Jo")
+	
+	@JoinColumn(name="id_Jogo_sets")
 	private java.util.Set<Set> sets;
 	
 	@OneToOne
-	@JoinColumn(name = "id_J")
+	@JoinColumn(name = "id_Jogo_partida")
 	private Partida partida;
 	
 

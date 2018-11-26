@@ -16,11 +16,11 @@ public class Time {
 	private String nome;
 	
 	@OneToMany
-	@JoinColumn(name="id_time")
+	@JoinColumn(name="id_time_atletas")
 	private Set<Atleta> atletas;
 	
 	@OneToOne
-	@JoinColumn(name="id_tecnicos")
+	@JoinColumn(name="id_time_atletas")
 	private Tecnico tecnicos;
 
 	public Time() {
