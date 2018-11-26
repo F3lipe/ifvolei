@@ -4,19 +4,31 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Jogo {
 	@Id
 	private int id;
-
 	private Date data;
+	
+	@ManyToOne
+	@JoinColumn (name = "id_Jogo")
 	private Time time_1;
+	
+	@ManyToOne
+	@JoinColumn (name = "id_Jog")
 	private Time time_2;
 
-	@ManyToOne
-	@JoinColumn(name="id_set")
+	@OneToMany
+	@JoinColumn(name="id_Jo")
 	private java.util.Set<Set> sets;
+	
+	@OneToOne
+	@JoinColumn(name = "id_J")
+	private Partida partida;
+	
 
 	public Jogo() {
 

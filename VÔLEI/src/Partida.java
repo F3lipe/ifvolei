@@ -1,5 +1,7 @@
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Partida {
@@ -7,9 +9,18 @@ public class Partida {
 	@Id
 	private int id;
 
+	@OneToOne
+	@JoinColumn(name = "id_Partida")
 	private Jogo jogo;
+
+	@OneToOne
+	@JoinColumn(name = "id_Parti")
 	private Time time_vencedor;
+	
+	@OneToOne
+	@JoinColumn(name = "id_Part")
 	private Time time_perdedor;
+	
 	private Integer pts_tim_venc = 3;
 
 	public Partida() {
@@ -56,7 +67,7 @@ public class Partida {
 	public void setTime_perdedor(Time time_perdedor) {
 		this.time_perdedor = time_perdedor;
 	}
-	
+
 	public Integer getPts_tim_venc() {
 		return pts_tim_venc;
 	}
@@ -116,7 +127,5 @@ public class Partida {
 		return "Partida [id=" + id + ", jogo=" + jogo + ", time_vencedor=" + time_vencedor + ", time_perdedor="
 				+ time_perdedor + ", pts_tim_venc=" + pts_tim_venc + "]";
 	}
-
-	
 
 }

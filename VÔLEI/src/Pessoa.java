@@ -5,7 +5,7 @@ import javax.persistence.Id;
 public class Pessoa {
 
 	@Id
-	private int matricula;
+	private long matricula;
 
 	private String nome;
 	private String sexo;
@@ -15,7 +15,7 @@ public class Pessoa {
 
 	}
 
-	public Pessoa(int matricula, String nome, String sexo, int idade) {
+	public Pessoa(long matricula, String nome, String sexo, int idade) {
 		super();
 		this.matricula = matricula;
 		this.nome = nome;
@@ -23,11 +23,11 @@ public class Pessoa {
 		this.idade = idade;
 	}
 
-	public int getMatricula() {
+	public long getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(int matricula) {
+	public void setMatricula(long matricula) {
 		this.matricula = matricula;
 	}
 
@@ -55,12 +55,14 @@ public class Pessoa {
 		this.idade = idade;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + idade;
-		result = prime * result + matricula;
+		result = prime * result + (int) (matricula ^ (matricula >>> 32));
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((sexo == null) ? 0 : sexo.hashCode());
 		return result;

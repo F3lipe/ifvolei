@@ -2,6 +2,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import java.util.Set;
@@ -14,8 +15,8 @@ public class Time {
 	
 	private String nome;
 	
-	@ManyToOne
-	@JoinColumn(name="id_atletas")
+	@OneToMany
+	@JoinColumn(name="id_time")
 	private Set<Atleta> atletas;
 	
 	@OneToOne
