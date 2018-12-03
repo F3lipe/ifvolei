@@ -26,10 +26,10 @@ public class Main {
 
 		DAO<Time> dao2 = new DAO<Time>();
 		Time Ti = new Time();
-		Ti.setId(3333333l);
-		Ti.setNome("Corinthians");
-		dao2.update(Ti);
-		Time find2 = dao2.find(Time.class, 3333333l);
+		Ti.setId( 6666666l);
+		Ti.setNome("Vasco");
+		dao2.save(Ti);
+		Time find2 = dao2.find(Time.class, 6666666l);
 		System.out.println(find2.getNome());
 
 		DAO<Partida> dao4 = new DAO<Partida>();
