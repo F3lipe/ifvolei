@@ -1,10 +1,11 @@
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Pessoa {
+public class Pessoa implements Identificavel{
 
 	@Id
 	private long matricula;
@@ -13,22 +14,21 @@ public class Pessoa {
 	private String sexo;
 	private int idade;
 	
-	@OneToMany
-	@JoinColumn(name="id_Pessoa_time")
-	private Time time;
-	
 	public Pessoa() {
 
 	}
 
-	public Pessoa(long matricula, String nome, String sexo, int idade, Time time) {
+	
+
+	public Pessoa(long matricula, String nome, String sexo, int idade) {
 		super();
 		this.matricula = matricula;
 		this.nome = nome;
 		this.sexo = sexo;
 		this.idade = idade;
-		this.time = time;
 	}
+
+
 
 	public long getMatricula() {
 		return matricula;
@@ -62,14 +62,6 @@ public class Pessoa {
 		this.idade = idade;
 	}
 
-	public Time getTime() {
-		return time;
-	}
-
-	public void setTime(Time time) {
-		this.time = time;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -78,7 +70,6 @@ public class Pessoa {
 		result = prime * result + (int) (matricula ^ (matricula >>> 32));
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((sexo == null) ? 0 : sexo.hashCode());
-		result = prime * result + ((time == null) ? 0 : time.hashCode());
 		return result;
 	}
 
@@ -105,18 +96,15 @@ public class Pessoa {
 				return false;
 		} else if (!sexo.equals(other.sexo))
 			return false;
-		if (time == null) {
-			if (other.time != null)
-				return false;
-		} else if (!time.equals(other.time))
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Pessoa [matricula=" + matricula + ", nome=" + nome + ", sexo=" + sexo + ", idade=" + idade + ", time="
-				+ time + "]";
+		return "Pessoa [matricula=" + matricula + ", nome=" + nome + ", sexo=" + sexo + ", idade=" + idade + "]";
 	}
 
+	
+
+	
 }

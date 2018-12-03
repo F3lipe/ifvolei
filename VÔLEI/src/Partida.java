@@ -4,7 +4,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Partida {
+public class Partida implements Identificavel {
 
 	@Id
 	private int id;

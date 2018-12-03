@@ -2,7 +2,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Set {
+public class Set implements Identificavel {
 
 	@Id
 	private int id;

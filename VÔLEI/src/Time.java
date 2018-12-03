@@ -8,10 +8,10 @@ import javax.persistence.OneToOne;
 import java.util.Set;
 
 @Entity
-public class Time {
+public class Time implements Identificavel {
 
 	@Id
-	private int id;
+	private long id;
 	
 	private String nome;
 	
@@ -26,7 +26,7 @@ public class Time {
 	public Time() {
 	}
 
-	public Time(int id, String nome, Set<Atleta> atletas, Tecnico tecnicos) {
+	public Time(long id, String nome, Set<Atleta> atletas, Tecnico tecnicos) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -34,11 +34,11 @@ public class Time {
 		this.tecnicos = tecnicos;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -71,7 +71,7 @@ public class Time {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((atletas == null) ? 0 : atletas.hashCode());
-		result = prime * result + id;
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((tecnicos == null) ? 0 : tecnicos.hashCode());
 		return result;
@@ -110,5 +110,9 @@ public class Time {
 	public String toString() {
 		return "Time [id=" + id + ", nome=" + nome + ", atletas=" + atletas + ", tecnicos=" + tecnicos + "]";
 	}
-
+	
 }
+
+
+
+	

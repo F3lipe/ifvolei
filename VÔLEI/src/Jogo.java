@@ -8,7 +8,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Jogo {
+public class Jogo implements Identificavel {
 	@Id
 	private int id;
 	private Date data;
