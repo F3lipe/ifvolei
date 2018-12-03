@@ -7,7 +7,7 @@ import javax.persistence.OneToOne;
 public class Partida implements Identificavel {
 
 	@Id
-	private int id;
+	private long id;
 
 	@OneToOne
 	@JoinColumn(name = "id_Partida_jogo")
@@ -16,18 +16,18 @@ public class Partida implements Identificavel {
 	@OneToOne
 	@JoinColumn(name = "id_Partida_tvencedor")
 	private Time time_vencedor;
-	
+
 	@OneToOne
 	@JoinColumn(name = "id_Partida_tperdedor")
 	private Time time_perdedor;
-	
+
 	private Integer pts_tim_venc = 3;
 
 	public Partida() {
 
 	}
 
-	public Partida(int id, Jogo jogo, Time time_vencedor, Time time_perdedor, Integer pts_tim_venc) {
+	public Partida(long id, Jogo jogo, Time time_vencedor, Time time_perdedor, Integer pts_tim_venc) {
 		super();
 		this.id = id;
 		this.jogo = jogo;
@@ -36,11 +36,11 @@ public class Partida implements Identificavel {
 		this.pts_tim_venc = pts_tim_venc;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -80,7 +80,7 @@ public class Partida implements Identificavel {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((jogo == null) ? 0 : jogo.hashCode());
 		result = prime * result + ((pts_tim_venc == null) ? 0 : pts_tim_venc.hashCode());
 		result = prime * result + ((time_perdedor == null) ? 0 : time_perdedor.hashCode());
