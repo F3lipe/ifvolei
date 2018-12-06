@@ -5,6 +5,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 @Entity
@@ -12,26 +13,24 @@ public class Time implements Identificavel {
 
 	@Id
 	private long id;
-	
+
 	private String nome;
-	
+
 	@OneToMany
-	@JoinColumn(name="id_time_atletas")
 	private Set<Atleta> atletas;
-	
+
 	@OneToOne
-	@JoinColumn(name="id_time_tecnicos")
-	private Tecnico tecnicos;
+	private Tecnico tecnico;
 
 	public Time() {
 	}
 
-	public Time(long id, String nome, Set<Atleta> atletas, Tecnico tecnicos) {
+	public Time(long id, String nome, Set<Atleta> atletas, Tecnico tecnico) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.atletas = atletas;
-		this.tecnicos = tecnicos;
+		this.tecnico = tecnico;
 	}
 
 	public long getId() {
@@ -58,12 +57,12 @@ public class Time implements Identificavel {
 		this.atletas = atletas;
 	}
 
-	public Tecnico getTecnicos() {
-		return tecnicos;
+	public Tecnico getTecnico() {
+		return tecnico;
 	}
 
-	public void setTecnicos(Tecnico tecnicos) {
-		this.tecnicos = tecnicos;
+	public void setTecnico(Tecnico tecnico) {
+		this.tecnico = tecnico;
 	}
 
 	@Override
@@ -73,7 +72,7 @@ public class Time implements Identificavel {
 		result = prime * result + ((atletas == null) ? 0 : atletas.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((tecnicos == null) ? 0 : tecnicos.hashCode());
+		result = prime * result + ((tecnico == null) ? 0 : tecnico.hashCode());
 		return result;
 	}
 
@@ -98,21 +97,17 @@ public class Time implements Identificavel {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (tecnicos == null) {
-			if (other.tecnicos != null)
+		if (tecnico == null) {
+			if (other.tecnico != null)
 				return false;
-		} else if (!tecnicos.equals(other.tecnicos))
+		} else if (!tecnico.equals(other.tecnico))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Time [id=" + id + ", nome=" + nome + ", atletas=" + atletas + ", tecnicos=" + tecnicos + "]";
+		return "Time [id=" + id + ", nome=" + nome + ", atletas=" + atletas + ", tecnico=" + tecnico + "]";
 	}
-	
+
 }
-
-
-
-	

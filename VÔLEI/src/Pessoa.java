@@ -5,7 +5,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Pessoa implements Identificavel{
+public class Pessoa implements Identificavel {
 
 	@Id
 	private long matricula;
@@ -13,12 +13,10 @@ public class Pessoa implements Identificavel{
 	private String nome;
 	private String sexo;
 	private int idade;
-	
+
 	public Pessoa() {
 
 	}
-
-	
 
 	public Pessoa(long matricula, String nome, String sexo, int idade) {
 		super();
@@ -27,8 +25,6 @@ public class Pessoa implements Identificavel{
 		this.sexo = sexo;
 		this.idade = idade;
 	}
-
-
 
 	public long getMatricula() {
 		return matricula;
@@ -104,7 +100,4 @@ public class Pessoa implements Identificavel{
 		return "Pessoa [matricula=" + matricula + ", nome=" + nome + ", sexo=" + sexo + ", idade=" + idade + "]";
 	}
 
-	
-
-	
 }
