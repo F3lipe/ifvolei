@@ -4,7 +4,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Atleta extends Pessoa implements Identificavel {
+public class Atleta implements Identificavel {
 
 	@Id
 	private long matricula;

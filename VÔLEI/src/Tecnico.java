@@ -3,7 +3,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Tecnico extends Pessoa implements Identificavel {
+public class Tecnico implements Identificavel {
 
 	@Id
 	private long matricula;
