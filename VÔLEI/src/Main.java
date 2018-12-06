@@ -16,12 +16,12 @@ public class Main {
 
 		DAO<Atleta> dao = new DAO<Atleta>();
 		Atleta A = new Atleta();
-		A.setMatricula(201619600014l);
-		A.setNome("Joel");
-		A.setSexo("Masculino");
-		A.setIdade(17);
+		A.setMatricula(2017196000031l);
+		A.setNome("Fernanda B");
+		A.setSexo("Feminino");
+		A.setIdade(16);
 		dao.update(A);
-		Atleta find = dao.find(Atleta.class, 201619600014l);
+		Atleta find = dao.find(Atleta.class, 201719600031l);
 		System.out.println(find.getNome());
 
 		DAO<Time> dao2 = new DAO<Time>();

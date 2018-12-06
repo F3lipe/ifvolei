@@ -20,7 +20,8 @@ public class Atleta extends Pessoa implements Identificavel {
 	@OneToOne
 	@JoinColumn(name = "tecnico_do_atleta")
 	private Tecnico tecnicos;
-
+	
+	
 	public Atleta() {
 	}
 
