@@ -1,4 +1,6 @@
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -13,9 +15,10 @@ public class Tecnico implements Identificavel {
 	private int idade;
 
 	@OneToOne
+	//(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="tecnico")
 	private Time times;
-	
-		public Tecnico() {
+
+	public Tecnico() {
 	}
 
 	public Tecnico(long matricula, String nome, String sexo, int idade, Time times) {

@@ -16,7 +16,7 @@ public class Time implements Identificavel {
 
 	private String nome;
 
-	@OneToMany
+	@OneToMany()
 	private Set<Atleta> atletas;
 
 	@OneToOne
