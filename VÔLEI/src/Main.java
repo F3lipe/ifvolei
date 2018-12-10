@@ -1,16 +1,27 @@
 import java.util.Date;
 
+import entites.Atleta;
+import entites.Jogo;
+import entites.Partida;
+import entites.Tecnico;
+import entites.Time;
+import exceptions.NomeInexistente;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NomeInexistente {
 		DAO<Tecnico> dao1 = new DAO<Tecnico>();
 		Tecnico T = new Tecnico();
-		T.setMatricula(201801l);
-		T.setNome("Josikleio");
+		T.setMatricula(201804l);
 		T.setSexo("Masculino");
 		T.setIdade(39);
-		dao1.update(T);
-		Tecnico find1 = dao1.find(Tecnico.class, 201801l);
+		if (T.getNome() == null) {
+			throw new NomeInexistente();
+		} else {
+			dao1.save(T);
+		}
+
+		Tecnico find1 = dao1.find(Tecnico.class, 201803l);
 		System.out.println(find1.getNome());
 
 		DAO<Tecnico> daoTe = new DAO<Tecnico>();
@@ -52,7 +63,7 @@ public class Main {
 		dao.update(A);
 		Atleta find = dao.find(Atleta.class, 201719600021l);
 		System.out.println(find.getNome());
-		
+
 		DAO<Atleta> daoA = new DAO<Atleta>();
 		Atleta A2 = new Atleta();
 		A2.setMatricula(201719600019l);
@@ -61,7 +72,7 @@ public class Main {
 		A2.setIdade(15);
 		A2.setTimes(Tii2);
 		A2.setTecnicos(T2);
-		dao.save(A2);
+		dao.update(A2);
 		Atleta findA = daoA.find(Atleta.class, 201719600019l);
 		System.out.println(findA.getNome());
 

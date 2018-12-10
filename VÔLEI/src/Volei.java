@@ -1,3 +1,10 @@
+import entites.Atleta;
+import entites.Jogo;
+import entites.Partida;
+import entites.Set;
+import entites.Tecnico;
+import entites.Time;
+
 public interface Volei {
 
 	public Atleta CadastrarAtleta(Atleta atleta);
@@ -6,7 +13,7 @@ public interface Volei {
 
 	public Time CriarTime(Time time, java.util.Set<Atleta> atletas, Tecnico tecnico);
 
-	public Jogo CriarJogo(Jogo jogo, java.util.Set<Time> times, java.util.Set<Atleta> escalarAtletas,
+	public Jogo CriarJogo(Jogo jogo,java.util.Set<Time> times, java.util.Set<Atleta> escalarAtletas,
 			java.util.Set<Tecnico> tecnico);
 
 	public Jogo Rodada(Jogo jogo, Set set, java.util.Set<Partida> partidas);

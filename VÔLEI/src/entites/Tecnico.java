@@ -1,3 +1,4 @@
+package entites;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,7 +15,7 @@ public class Tecnico implements Identificavel {
 	private String sexo;
 	private int idade;
 
-	@OneToOne
+	@OneToOne(mappedBy="tecnico", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	//(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="tecnico")
 	private Time times;
 

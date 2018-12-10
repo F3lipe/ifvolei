@@ -2,6 +2,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import entites.Identificavel;
+
 public class DAO<E extends Identificavel> {
 
 	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("esportivo");

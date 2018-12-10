@@ -1,4 +1,6 @@
+package entites;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +21,7 @@ public class Time implements Identificavel {
 	@OneToMany()
 	private Set<Atleta> atletas;
 
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	private Tecnico tecnico;
 
 	public Time() {
