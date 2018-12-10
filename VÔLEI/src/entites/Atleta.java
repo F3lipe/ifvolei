@@ -1,14 +1,31 @@
 package entites;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import exceptions.IdInexistente;
+import exceptions.NomeInexistente;
+
 @Entity
 public class Atleta implements Identificavel {
 
+	public Atleta CadastrarAtleta(Long matricula, String nome, String sexo, int idade)
+			throws IdInexistente, NomeInexistente {
+		Atleta atleta = new Atleta();
+		if (matricula == null) {
+			throw new IdInexistente();
+		}
+		if (nome == null) {
+			throw new NomeInexistente();
+		}
+		return null;
+
+	}
+
 	@Id
-	private long matricula;
+	private Long matricula;
 
 	private String nome;
 	private String sexo;
@@ -21,13 +38,11 @@ public class Atleta implements Identificavel {
 	@OneToOne
 	@JoinColumn(name = "tecnico_do_atleta")
 	private Tecnico tecnicos;
-	
-	
+
 	public Atleta() {
 	}
 
-	
-	public Atleta(long matricula, String nome, String sexo, int idade, Time times, Tecnico tecnicos) {
+	public Atleta(Long matricula, String nome, String sexo, int idade, Time times, Tecnico tecnicos) {
 		super();
 		this.matricula = matricula;
 		this.nome = nome;
@@ -37,12 +52,11 @@ public class Atleta implements Identificavel {
 		this.tecnicos = tecnicos;
 	}
 
-
-	public long getMatricula() {
+	public Long getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(long matricula) {
+	public void setMatricula(Long matricula) {
 		this.matricula = matricula;
 	}
 

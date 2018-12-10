@@ -5,23 +5,32 @@ import entites.Jogo;
 import entites.Partida;
 import entites.Tecnico;
 import entites.Time;
+import exceptions.IdInexistente;
 import exceptions.NomeInexistente;
 
 public class Main {
 
-	public static void main(String[] args) throws NomeInexistente {
+	public static void main(String[] args) throws IdInexistente, NomeInexistente {
 		DAO<Tecnico> dao1 = new DAO<Tecnico>();
 		Tecnico T = new Tecnico();
-		T.setMatricula(201804l);
+		T.setMatricula(201619600000l);
+		T.setNome("Eva Adão");
 		T.setSexo("Masculino");
 		T.setIdade(39);
+		
+		if (T.getMatricula() == null) {
+			throw new IdInexistente();
+		} else {
+			dao1.save(T);
+		}
+		
 		if (T.getNome() == null) {
 			throw new NomeInexistente();
 		} else {
 			dao1.save(T);
 		}
 
-		Tecnico find1 = dao1.find(Tecnico.class, 201803l);
+		Tecnico find1 = dao1.find(Tecnico.class, 201619600000l);
 		System.out.println(find1.getNome());
 
 		DAO<Tecnico> daoTe = new DAO<Tecnico>();
@@ -89,7 +98,6 @@ public class Main {
 		Jogo J = new Jogo();
 		J.setId(02l);
 		J.setData(new Date());
-		J.setPartida(01l);
 		J.setPartida(P);
 		J.setTime_1(Tii);
 		J.setTime_2(Tii2);

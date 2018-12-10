@@ -9,14 +9,13 @@ import javax.persistence.OneToOne;
 public class Tecnico implements Identificavel {
 
 	@Id
-	private long matricula;
+	private Long matricula;
 
 	private String nome;
 	private String sexo;
 	private int idade;
 
-	@OneToOne(mappedBy="tecnico", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	//(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="tecnico")
+	@OneToOne
 	private Time times;
 
 	public Tecnico() {
@@ -31,11 +30,11 @@ public class Tecnico implements Identificavel {
 		this.times = times;
 	}
 
-	public long getMatricula() {
+	public Long getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(long matricula) {
+	public void setMatricula(Long matricula) {
 		this.matricula = matricula;
 	}
 
