@@ -25,7 +25,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		dao1.update(T);
+		dao1.save(T);
 		Tecnico find1 = dao1.find(Tecnico.class, 201801l);
 		System.out.println(find1.getNome());
 		try {
@@ -48,7 +48,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		daoTe.update(T2);
+		daoTe.save(T2);
 		Tecnico findTe = daoTe.find(Tecnico.class, 201802l);
 		System.out.println(findTe.getNome());
 		try {
@@ -70,7 +70,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		dao2.update(Tii);
+		dao2.save(Tii);
 		Time find2 = dao2.find(Time.class, 10l);
 		System.out.println(find2.getNome());
 		try {
@@ -92,7 +92,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		daoT.update(Tii2);
+		daoT.save(Tii2);
 		Time findT = daoT.find(Time.class, 20l);
 		System.out.println(findT.getNome());
 		try {
@@ -116,7 +116,7 @@ public class Main {
 		} catch (IdInexistenteException e) {
 			e.printStackTrace();
 		}
-		dao.update(A);
+		dao.save(A);
 		Atleta find = dao.find(Atleta.class, 201619600004l);
 		System.out.println(find.getNome());
 		try {
@@ -141,7 +141,7 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		daoA.update(A2);
+		daoA.save(A2);
 		Atleta findA = daoA.find(Atleta.class, 201719600019l);
 		System.out.println(findA.getNome());
 		try {
@@ -155,7 +155,7 @@ public class Main {
 		P.setId(01l);
 		P.setTime_vencedor(Tii);
 		P.setTime_perdedor(Tii2);
-		dao4.update(P);
+		dao4.save(P);
 		Partida find4 = dao4.find(Partida.class, 01l);
 		System.out.println(find4.getId());
 
@@ -166,7 +166,7 @@ public class Main {
 		J.setPartida(P);
 		J.setTime_1(Tii);
 		J.setTime_2(Tii2);
-		dao3.update(J);
+		dao3.save(J);
 		Jogo find3 = dao3.find(Jogo.class, 02l);
 		System.out.println(find3.getId());
 

@@ -24,7 +24,7 @@ public class Ifvolei {
 			throw new NomeInexistenteException();
 		} else {
 
-			dao1.update(Ctecnico);
+			dao1.save(Ctecnico);
 		}
 
 		return Ctecnico;
@@ -43,7 +43,7 @@ public class Ifvolei {
 			throw new NomeInexistenteException();
 		} else {
 
-			daoT.update(time1);
+			daoT.save(time1);
 		}
 
 		return time1;
@@ -62,7 +62,7 @@ public class Ifvolei {
 			throw new NomeInexistenteException();
 		} else {
 
-			dao1.update(atleta);
+			dao1.save(atleta);
 		}
 
 		return atleta;
