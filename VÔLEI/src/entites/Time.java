@@ -14,20 +14,20 @@ import java.util.Set;
 public class Time implements Identificavel {
 
 	@Id
-	private long id;
+	private Long id;
 
 	private String nome;
 
 	@OneToMany()
 	private Set<Atleta> atletas;
 
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne
 	private Tecnico tecnico;
 
 	public Time() {
 	}
 
-	public Time(long id, String nome, Set<Atleta> atletas, Tecnico tecnico) {
+	public Time(Long id, String nome, Set<Atleta> atletas, Tecnico tecnico) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -35,11 +35,18 @@ public class Time implements Identificavel {
 		this.tecnico = tecnico;
 	}
 
-	public long getId() {
+	public Time(Long id, String nome, Tecnico tecnico) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.tecnico = tecnico;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

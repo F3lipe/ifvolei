@@ -1,4 +1,5 @@
 package entites;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,6 +29,14 @@ public class Tecnico implements Identificavel {
 		this.sexo = sexo;
 		this.idade = idade;
 		this.times = times;
+	}
+
+	public Tecnico(Long matricula, String nome, String sexo, int idade) {
+		super();
+		this.matricula = matricula;
+		this.nome = nome;
+		this.sexo = sexo;
+		this.idade = idade;
 	}
 
 	public Long getMatricula() {

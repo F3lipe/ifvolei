@@ -5,24 +5,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import exceptions.IdInexistente;
-import exceptions.NomeInexistente;
+
 
 @Entity
 public class Atleta implements Identificavel {
 
-	public Atleta CadastrarAtleta(Long matricula, String nome, String sexo, int idade)
-			throws IdInexistente, NomeInexistente {
-		Atleta atleta = new Atleta();
-		if (matricula == null) {
-			throw new IdInexistente();
-		}
-		if (nome == null) {
-			throw new NomeInexistente();
-		}
-		return null;
-
-	}
 
 	@Id
 	private Long matricula;
@@ -50,6 +37,14 @@ public class Atleta implements Identificavel {
 		this.idade = idade;
 		this.times = times;
 		this.tecnicos = tecnicos;
+	}
+
+	public Atleta(Long matricula, String nome, String sexo, int idade) {
+		super();
+		this.matricula = matricula;
+		this.nome = nome;
+		this.sexo = sexo;
+		this.idade = idade;
 	}
 
 	public Long getMatricula() {
