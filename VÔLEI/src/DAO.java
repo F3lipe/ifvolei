@@ -3,10 +3,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import entites.Identificavel;
+import entites.Time;
 
 public class DAO<E extends Identificavel> {
 
 	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("esportivo");
+	
 	
 	public void save(E e) {
 		EntityManager em = factory.createEntityManager();
@@ -19,8 +21,6 @@ public class DAO<E extends Identificavel> {
 	public void update(E e) {
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
-		
-		
 		em.merge(e);
 		em.getTransaction().commit();
 		em.close();
@@ -29,8 +29,6 @@ public class DAO<E extends Identificavel> {
 	public void remove(E e) {
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
-		
-		
 		em.remove(e);
 		em.getTransaction().commit();
 		em.close();
@@ -41,6 +39,11 @@ public class DAO<E extends Identificavel> {
 		E e = em.find(classe, id);
 		em.close();
 		return e;
+	}
+
+	public void remove(Time rtime) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

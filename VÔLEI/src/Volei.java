@@ -17,7 +17,7 @@ public interface Volei {
 
 	public Tecnico RemoverTecnico(Tecnico tecnico) throws IdInexistenteException;
 	
-	public Time RemoverTime(Time time, java.util.Set<Atleta> atletas, Tecnico tecnico)throws IdInexistenteException;
+	public Time RemoverTime(Time time)throws IdInexistenteException;
 	
 	public Atleta RemoverAtleta(Atleta atleta) throws IdInexistenteException;
 	

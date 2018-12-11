@@ -1,3 +1,7 @@
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.swing.text.rtf.RTFEditorKit;
+
 import entites.Atleta;
 import entites.Tecnico;
 import entites.Time;
@@ -6,13 +10,13 @@ import exceptions.NomeInexistenteException;
 
 public class Ifvolei {
 
-	//---------------------------------CADASTRO DE TÉCNICOS, TIMES E ATLETAS--------------------------------------------------//
-	
+	// ---------------------------------CADASTRO DE TÉCNICOS, TIMES E ATLETAS--------------------------------------------------//
+
 	public Tecnico CadastrarTecnico(Long matricula, String nome, String sexo, int idade)
 			throws IdInexistenteException, NomeInexistenteException {
 
 		DAO<Tecnico> dao1 = new DAO<Tecnico>();
-		Tecnico tecnico = new Tecnico(matricula, nome, sexo, idade);
+		Tecnico Ctecnico = new Tecnico(matricula, nome, sexo, idade);
 
 		if (matricula == null) {
 			throw new IdInexistenteException();
@@ -20,10 +24,10 @@ public class Ifvolei {
 			throw new NomeInexistenteException();
 		} else {
 
-			dao1.save(tecnico);
+			dao1.update(Ctecnico);
 		}
 
-		return tecnico;
+		return Ctecnico;
 
 	}
 
@@ -39,7 +43,7 @@ public class Ifvolei {
 			throw new NomeInexistenteException();
 		} else {
 
-			daoT.save(time1);
+			daoT.update(time1);
 		}
 
 		return time1;
@@ -58,19 +62,57 @@ public class Ifvolei {
 			throw new NomeInexistenteException();
 		} else {
 
-			dao1.save(atleta);
+			dao1.update(atleta);
 		}
 
 		return atleta;
 
 	}
-	
-	
-	//-----------------------------------REMOVE DE TÉCNICOS, TIMES E ATLETAS-----------------------------------------//
 
-	
-	
-	
+	// -----------------------------------REMOVE TÉCNICOS, TIMES E ATLETAS-----------------------------------------//
+
+	public Tecnico RemoverTecnico(Long matricula) throws IdInexistenteException {
+		DAO<Tecnico> dao1 = new DAO<Tecnico>();
+		Tecnico Rtecnico = new Tecnico();
+		if (matricula == null) {
+			throw new IdInexistenteException();
+		} else {
+
+			dao1.remove(Rtecnico);
+		}
+
+		return Rtecnico;
+
+	}
+
+	public Time RemoverTime(Long id) throws IdInexistenteException {
+		DAO<Atleta> dao1 = new DAO<Atleta>();
+		Time Rtime = new Time();
+		if (id == null) {
+			throw new IdInexistenteException();
+		} else {
+
+			dao1.remove(Rtime);
+		}
+
+		return Rtime;
+
+	}
+
+	public Atleta RemoverAtleta(Long matricula) throws IdInexistenteException {
+		DAO<Atleta> dao1 = new DAO<Atleta>();
+		Atleta Ratleta = new Atleta();
+		if (matricula == null) {
+			throw new IdInexistenteException();
+		} else {
+
+			dao1.remove(Ratleta);
+		}
+
+		return Ratleta;
+
+	}
+
 	public Ifvolei() {
 		super();
 	}

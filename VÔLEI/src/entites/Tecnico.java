@@ -39,6 +39,11 @@ public class Tecnico implements Identificavel {
 		this.idade = idade;
 	}
 
+	public Tecnico(Long matricula) {
+		super();
+		this.matricula = matricula;
+	}
+
 	public Long getMatricula() {
 		return matricula;
 	}
