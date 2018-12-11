@@ -10,7 +10,7 @@ import exceptions.NomeInexistenteException;
 
 public class Ifvolei {
 
-	// ---------------------------------CADASTRO DE TÉCNICOS, TIMES E ATLETAS--------------------------------------------------//
+	// ---------------------------------CADASTRO DE TÃ‰CNICOS, TIMES E ATLETAS--------------------------------------------------//
 
 	public Tecnico CadastrarTecnico(Long matricula, String nome, String sexo, int idade)
 			throws IdInexistenteException, NomeInexistenteException {
@@ -53,7 +53,7 @@ public class Ifvolei {
 	public Atleta CadastrarAtleta(Long matricula, String nome, String sexo, int idade)
 			throws IdInexistenteException, NomeInexistenteException {
 
-		DAO<Atleta> dao1 = new DAO<Atleta>();
+		DAO<Atleta> dao2 = new DAO<Atleta>();
 		Atleta atleta = new Atleta(matricula, nome, sexo, idade);
 
 		if (matricula == null) {
@@ -62,23 +62,23 @@ public class Ifvolei {
 			throw new NomeInexistenteException();
 		} else {
 
-			dao1.save(atleta);
+			dao2.save(atleta);
 		}
 
 		return atleta;
 
 	}
 
-	// -----------------------------------REMOVE TÉCNICOS, TIMES E ATLETAS-----------------------------------------//
+	// -----------------------------------REMOVE TÃ‰CNICOS, TIMES E ATLETAS-----------------------------------------//
 
 	public Tecnico RemoverTecnico(Long matricula) throws IdInexistenteException {
-		DAO<Tecnico> dao1 = new DAO<Tecnico>();
+		DAO<Tecnico> daoRtec = new DAO<Tecnico>();
 		Tecnico Rtecnico = new Tecnico();
 		if (matricula == null) {
 			throw new IdInexistenteException();
 		} else {
 
-			dao1.remove(Rtecnico);
+			daoRtec.remove(Rtecnico);
 		}
 
 		return Rtecnico;
@@ -86,13 +86,13 @@ public class Ifvolei {
 	}
 
 	public Time RemoverTime(Long id) throws IdInexistenteException {
-		DAO<Atleta> dao1 = new DAO<Atleta>();
+		DAO<Atleta> daoRt = new DAO<Atleta>();
 		Time Rtime = new Time();
 		if (id == null) {
 			throw new IdInexistenteException();
 		} else {
 
-			dao1.remove(Rtime);
+			daoRt.remove(Rtime);
 		}
 
 		return Rtime;
@@ -100,13 +100,13 @@ public class Ifvolei {
 	}
 
 	public Atleta RemoverAtleta(Long matricula) throws IdInexistenteException {
-		DAO<Atleta> dao1 = new DAO<Atleta>();
+		DAO<Atleta> daoRa = new DAO<Atleta>();
 		Atleta Ratleta = new Atleta();
 		if (matricula == null) {
 			throw new IdInexistenteException();
 		} else {
 
-			dao1.remove(Ratleta);
+			daoRa.remove(Ratleta);
 		}
 
 		return Ratleta;
