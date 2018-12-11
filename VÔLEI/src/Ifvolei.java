@@ -1,16 +1,15 @@
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.swing.text.rtf.RTFEditorKit;
 
 import entites.Atleta;
 import entites.Tecnico;
 import entites.Time;
+import exceptions.EntidadeNaoEncontradaException;
 import exceptions.IdInexistenteException;
 import exceptions.NomeInexistenteException;
 
 public class Ifvolei {
 
-	// ---------------------------------CADASTRO DE TÉCNICOS, TIMES E ATLETAS--------------------------------------------------//
+	// ---------------------------------CADASTRO DE TÉCNICOS, TIMES E
+	// ATLETAS--------------------------------------------------//
 
 	public Tecnico CadastrarTecnico(Long matricula, String nome, String sexo, int idade)
 			throws IdInexistenteException, NomeInexistenteException {
@@ -69,48 +68,47 @@ public class Ifvolei {
 
 	}
 
-	// -----------------------------------REMOVE TÉCNICOS, TIMES E ATLETAS-----------------------------------------//
+	// -----------------------------------REMOVE T�CNICOS, TIMES E
+	// ATLETAS-----------------------------------------//
 
-	public Tecnico RemoverTecnico(Long matricula) throws IdInexistenteException {
+	public Tecnico RemoverTecnico(Long matricula) throws IdInexistenteException, EntidadeNaoEncontradaException {
 		DAO<Tecnico> daoRtec = new DAO<Tecnico>();
-		Tecnico Rtecnico = new Tecnico();
 		if (matricula == null) {
 			throw new IdInexistenteException();
+		} else if (daoRtec.find(Tecnico.class, matricula) == null) {
+			throw new EntidadeNaoEncontradaException();
 		} else {
-
-			daoRtec.remove(Rtecnico);
+			Tecnico tec = daoRtec.find(Tecnico.class, matricula);
+			daoRtec.remove(tec);
+			return tec;
 		}
-
-		return Rtecnico;
-
 	}
 
-	public Time RemoverTime(Long id) throws IdInexistenteException {
-		DAO<Time> daoRt = new DAO<Atleta>();
-		Time Rtime = new Time();
+	public Time RemoverTime(Long id) throws IdInexistenteException, EntidadeNaoEncontradaException {
+		DAO<Time> daoRt = new DAO<Time>();
 		if (id == null) {
 			throw new IdInexistenteException();
+		} else if (daoRt.find(Time.class, id) == null) {
+			throw new EntidadeNaoEncontradaException();
 		} else {
-
-			daoRt.remove(Rtime);
+			Time tim = daoRt.find(Time.class, id);
+			daoRt.remove(tim);
+			return tim;
 		}
-
-		return Rtime;
-
 	}
 
-	public Atleta RemoverAtleta(Long matricula) throws IdInexistenteException {
+	public Atleta RemoverAtleta(Long matricula) throws IdInexistenteException, EntidadeNaoEncontradaException {
 		DAO<Atleta> daoRa = new DAO<Atleta>();
-		Atleta Ratleta = new Atleta();
+
 		if (matricula == null) {
 			throw new IdInexistenteException();
+		} else if (daoRa.find(Atleta.class, matricula) == null) {
+			throw new EntidadeNaoEncontradaException();
 		} else {
-
-			daoRa.remove(Ratleta);
+			Atleta atleta = daoRa.find(Atleta.class, matricula);
+			daoRa.remove(atleta);
+			return atleta;
 		}
-
-		return Ratleta;
-
 	}
 
 	public Ifvolei() {

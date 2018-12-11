@@ -5,12 +5,14 @@ import entites.Jogo;
 import entites.Partida;
 import entites.Tecnico;
 import entites.Time;
+import exceptions.EntidadeNaoEncontradaException;
 import exceptions.IdInexistenteException;
 import exceptions.NomeInexistenteException;
 
 public class Main {
 
-	public static void main(String[] args) throws IdInexistenteException, NomeInexistenteException {
+	public static void main(String[] args)
+			throws IdInexistenteException, NomeInexistenteException, EntidadeNaoEncontradaException {
 		DAO<Tecnico> dao1 = new DAO<Tecnico>();
 		Ifvolei Tvolei = new Ifvolei();
 		Ifvolei RTvolei = new Ifvolei();
