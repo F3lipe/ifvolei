@@ -25,12 +25,14 @@ public class Main {
 			e.printStackTrace();
 		}
 
+		dao1.update(T);
+		Tecnico find1 = dao1.find(Tecnico.class, 201801l);
+		System.out.println(find1.getNome());
 		try {
 			RTvolei.RemoverTecnico(201801l);
 		} catch (IdInexistenteException e) {
 			e.printStackTrace();
 		}
-		dao1.update(T);
 
 		DAO<Tecnico> daoTe = new DAO<Tecnico>();
 		Tecnico T2 = new Tecnico();
@@ -46,14 +48,14 @@ public class Main {
 			e.printStackTrace();
 		}
 
+		daoTe.update(T2);
+		Tecnico findTe = daoTe.find(Tecnico.class, 201802l);
+		System.out.println(findTe.getNome());
 		try {
 			RT2volei.RemoverTecnico(201802l);
 		} catch (IdInexistenteException e) {
 			e.printStackTrace();
 		}
-		daoTe.update(T2);
-		Tecnico findTe = daoTe.find(Tecnico.class, 201802l);
-		System.out.println(findTe.getNome());
 
 		DAO<Time> dao2 = new DAO<Time>();
 		Time Tii = new Time();
@@ -68,18 +70,19 @@ public class Main {
 			e.printStackTrace();
 		}
 
+		dao2.update(Tii);
+		Time find2 = dao2.find(Time.class, 10l);
+		System.out.println(find2.getNome());
 		try {
 			RTiivolei.RemoverTime(10l);
 		} catch (IdInexistenteException e) {
 			e.printStackTrace();
 		}
-		dao2.update(Tii);
-		Time find2 = dao2.find(Time.class, 10l);
-		System.out.println(find2.getNome());
 
 		DAO<Time> daoT = new DAO<Time>();
 		Time Tii2 = new Time();
 		Ifvolei Tii2volei = new Ifvolei();
+		Ifvolei RTii2volei = new Ifvolei();
 		Tii2.setId(20l);
 		Tii2.setNome("Corinthians");
 		Tii2.setTecnico(T2);
@@ -88,18 +91,20 @@ public class Main {
 		} catch (IdInexistenteException e) {
 			e.printStackTrace();
 		}
-		try {
-			RTvolei.RemoverTime(20l);
-		} catch (IdInexistenteException e) {
-			e.printStackTrace();
-		}
+
 		daoT.update(Tii2);
 		Time findT = daoT.find(Time.class, 20l);
 		System.out.println(findT.getNome());
+		try {
+			RTii2volei.RemoverTime(20l);
+		} catch (IdInexistenteException e) {
+			e.printStackTrace();
+		}
 
 		DAO<Atleta> dao = new DAO<Atleta>();
 		Atleta A = new Atleta();
 		Ifvolei Avolei = new Ifvolei();
+		Ifvolei RAvolei = new Ifvolei();
 		A.setMatricula(201619600004l);
 		A.setNome("Felipe");
 		A.setSexo("Masculino");
@@ -111,18 +116,19 @@ public class Main {
 		} catch (IdInexistenteException e) {
 			e.printStackTrace();
 		}
-		try {
-			RTvolei.RemoverAtleta(201619600004l);
-		} catch (IdInexistenteException e) {
-			e.printStackTrace();
-		}
 		dao.update(A);
 		Atleta find = dao.find(Atleta.class, 201619600004l);
 		System.out.println(find.getNome());
+		try {
+			RAvolei.RemoverAtleta(201619600004l);
+		} catch (IdInexistenteException e) {
+			e.printStackTrace();
+		}
 
 		DAO<Atleta> daoA = new DAO<Atleta>();
 		Atleta A2 = new Atleta();
 		Ifvolei A2volei = new Ifvolei();
+		Ifvolei RA2volei = new Ifvolei();
 		A2.setMatricula(201619600019l);
 		A2.setNome("Maria Clara");
 		A2.setSexo("Feminino");
@@ -134,14 +140,15 @@ public class Main {
 		} catch (IdInexistenteException e) {
 			e.printStackTrace();
 		}
-		try {
-			RTvolei.RemoverAtleta(201619600019l);
-		} catch (IdInexistenteException e) {
-			e.printStackTrace();
-		}
+
 		daoA.update(A2);
 		Atleta findA = daoA.find(Atleta.class, 201719600019l);
 		System.out.println(findA.getNome());
+		try {
+			RA2volei.RemoverAtleta(201619600019l);
+		} catch (IdInexistenteException e) {
+			e.printStackTrace();
+		}
 
 		DAO<Partida> dao4 = new DAO<Partida>();
 		Partida P = new Partida();
