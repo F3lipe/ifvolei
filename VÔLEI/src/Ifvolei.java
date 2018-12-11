@@ -86,7 +86,7 @@ public class Ifvolei {
 	}
 
 	public Time RemoverTime(Long id) throws IdInexistenteException {
-		DAO<Atleta> daoRt = new DAO<Atleta>();
+		DAO<Time> daoRt = new DAO<Atleta>();
 		Time Rtime = new Time();
 		if (id == null) {
 			throw new IdInexistenteException();
